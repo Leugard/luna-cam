@@ -13,13 +13,23 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "$(Luna) Needs to access to your Camera",
+        "NSMicrophoneUsageDescription": "$(Luna) needs to access to your Microphone"
+      },
+      "bundleIdentifier": "com.leugard.luna"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.leugard.luna"
     },
     "web": {
       "bundler": "metro",
@@ -27,7 +37,15 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "$(Luna) Needs to access to your Camera",
+          "enableMicrophonePermission": true,
+          "microphonePermissionText": "$(Luna) needs to access to your Microphone"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
